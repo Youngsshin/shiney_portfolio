@@ -1,0 +1,390 @@
+/* About.css - Joe Garner Style (No Header/Footer Override) */
+
+.about-page-new {
+  background: #f5f5f0;
+  color: #000;
+  min-height: 100vh;
+  padding-top: 0;
+}
+
+/* Hero Section with Image */
+.about-hero-with-image {
+  padding: 80px 0 0 0;
+  background: #f5f5f0;
+}
+
+.about-hero-text-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0 50px;
+  margin-bottom: -80px;
+  position: relative;
+  z-index: 5;
+}
+
+.about-hero-about {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-size: clamp(100px, 18vw, 280px);
+  font-style: italic;
+  font-weight: 300;
+  line-height: 0.8;
+  margin-top: 20px;
+  color: #000;
+}
+
+.about-hero-me {
+  font-size: clamp(150px, 30vw, 600px);
+  font-weight: 900;
+  line-height: 0.7;
+  letter-spacing: -0.03em;
+  align-self: flex-end;
+  margin-right: 50px;
+  color: #000;
+}
+
+.about-hero-image-container {
+  width: 100%;
+  height: 500px;
+  overflow: hidden;
+  position: relative;
+  background: #ddd;
+}
+
+.about-hero-main-image {
+  width: 100%;
+  height: 150%;
+  display: block;
+  filter: brightness(0.50) grayscale(100%);
+  position: absolute;
+  top: -25%;
+  left: 0;
+  object-fit: cover;
+}
+
+/* Quote Section */
+.about-quote-section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 100px 50px;
+  text-align: center;
+}
+
+.about-quote-small {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 60px;
+  font-weight: 500;
+}
+
+.about-quote-large {
+  font-size: clamp(40px, 7vw, 110px);
+  font-weight: 400;
+  line-height: 1.1;
+  max-width: 1400px;
+  letter-spacing: -0.02em;
+  font-family: 'Georgia', 'Times New Roman', serif;
+}
+
+/* Story Section */
+.about-story-section {
+  padding: 100px 50px 200px;
+  border-top: 1px solid #000;
+}
+
+.about-story-grid {
+  display: grid;
+  grid-template-columns: 350px 1fr;
+  gap: 100px;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.about-story-left {
+  position: sticky;
+  top: 120px;
+  align-self: start;
+}
+
+.about-story-title {
+  font-size: clamp(100px, 15vw, 180px);
+  font-weight: 900;
+  margin-bottom: 40px;
+  letter-spacing: -0.03em;
+  line-height: 0.8;
+}
+
+.about-story-subtitle {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-size: clamp(40px, 6vw, 80px);
+  font-style: italic;
+  font-weight: 300;
+  line-height: 1;
+}
+
+.about-story-right {
+  padding-bottom: 50px;
+}
+
+.about-story-header {
+  border-top: 2px dotted #000;
+  padding-top: 40px;
+  margin-bottom: 40px;
+}
+
+.about-story-header h4 {
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.about-story-content {
+  margin-bottom: 60px;
+  border-bottom: 2px dotted #000;
+  padding-bottom: 60px;
+}
+
+.about-story-content p {
+  font-size: 16px;
+  line-height: 1.8;
+  margin-bottom: 20px;
+  max-width: 900px;
+}
+
+.about-story-image-wrapper {
+  width: 300px;
+  margin: 60px 0;
+}
+
+.about-story-image-wrapper img {
+  width: 100%;
+  height: auto;
+  filter: grayscale(100%);
+  display: block;
+}
+
+.about-certifications,
+.about-awards {
+  margin-bottom: 60px;
+  border-bottom: 2px dotted #000;
+  padding-bottom: 60px;
+}
+
+.about-certifications h4,
+.about-awards h4 {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 30px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.about-cert-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.about-cert-item,
+.about-award-item {
+  display: grid;
+  grid-template-columns: 20px 1fr auto;
+  gap: 15px;
+  font-size: 16px;
+  line-height: 1.6;
+  align-items: center;
+}
+
+.about-cert-dot {
+  font-size: 8px;
+}
+
+.about-cert-source {
+  text-align: right;
+  font-style: italic;
+  color: #666;
+}
+
+.about-award-header {
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 2px dotted #000;
+}
+
+.about-award-header span {
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.about-award-date {
+  text-align: right;
+}
+
+/* Contact Section */
+.about-contact-new {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 150px 50px;
+  text-align: center;
+  border-top: 1px solid #000;
+}
+
+.about-contact-script {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-size: clamp(50px, 8vw, 120px);
+  font-style: italic;
+  font-weight: 300;
+  margin-bottom: 40px;
+  line-height: 1;
+}
+
+.about-contact-bold {
+  font-size: clamp(100px, 20vw, 350px);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 0.9;
+}
+
+/* Bottom Links */
+.about-bottom-links {
+  display: flex;
+  justify-content: space-between;
+  padding: 30px 50px 50px;
+  font-size: 16px;
+  border-top: 1px solid #000;
+}
+
+.about-links-left,
+.about-links-right {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.about-links-left span,
+.about-links-right span {
+  font-weight: 700;
+}
+
+.about-links-left a,
+.about-links-right a {
+  text-decoration: none;
+  color: #000;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: opacity 0.3s ease;
+}
+
+.about-links-left a:hover,
+.about-links-right a:hover {
+  opacity: 0.6;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .about-story-grid {
+    grid-template-columns: 250px 1fr;
+    gap: 60px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .about-story-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .about-story-left {
+    position: static;
+    display: flex;
+    align-items: baseline;
+    gap: 30px;
+  }
+
+  .about-story-title {
+    font-size: 80px;
+  }
+
+  .about-story-subtitle {
+    font-size: 50px;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-hero-new {
+    padding: 0 20px;
+  }
+
+  .about-hero-big-text {
+    font-size: 80px;
+  }
+
+  .about-hero-me-text {
+    font-size: 120px;
+  }
+
+  .about-quote-section {
+    padding: 80px 20px;
+  }
+
+  .about-quote-large {
+    font-size: 32px;
+  }
+
+  .about-story-section {
+    padding: 60px 20px 100px;
+  }
+
+  .about-story-left {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .about-story-title {
+    font-size: 60px;
+  }
+
+  .about-story-subtitle {
+    font-size: 36px;
+  }
+
+  .about-contact-new {
+    padding: 100px 20px;
+  }
+
+  .about-contact-script {
+    font-size: 40px;
+  }
+
+  .about-contact-bold {
+    font-size: 80px;
+  }
+
+  .about-bottom-links {
+    flex-direction: column;
+    gap: 20px;
+    padding: 30px 20px;
+  }
+
+  .about-cert-item,
+  .about-award-item {
+    grid-template-columns: 20px 1fr;
+  }
+
+  .about-cert-source,
+  .about-award-date {
+    grid-column: 2;
+  }
+}
