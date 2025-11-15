@@ -16,11 +16,11 @@ import keyfeature3Image1 from '../assets/Images/Key_Features_img3_01.png';
 import keyfeature3Image2 from '../assets/Images/Key_Features_img3_02.png';
 import keyfeature3Image3 from '../assets/Images/Key_Features_img3_03.png';
 
-// 🔥 Google Drive 스트리밍 URL 적용 (영상 4개)
-const videoFinancial = "https://drive.google.com/uc?export=download&id=1Fjxx43JRhPkk9HzCTE36U8Sc3N_6Dfn_";
-const videoCctvPC = "https://drive.google.com/uc?export=download&id=15Y8KJzxkVMrEbv7i4gObrABJ2WuL6TZp";
-const videoCctvMobile = "https://drive.google.com/uc?export=download&id=10E2EEBgHCIixruFGclhmLsE3M7BfI6dm";
-const videoFlood = "https://drive.google.com/uc?export=download&id=1NcH6psSsnfhWyWFf_G0J05-gG4syjvNR";
+// YouTube 영상 ID 세팅
+const videoFinancial = "heHTTBztTw8";
+const videoCctvPC = "7tWvuyX58bk";
+const videoCctvMobile = "yaQc8UEllqU";
+const videoFlood = "fvxYQxwCb1I";
 
 export const projectsData = [
   {
@@ -89,7 +89,7 @@ export const projectsData = [
       demo: '#'
     },
     
-    // 🔥 CCTV 영상 2개 (PC / Mobile)
+    // CCTV 유튜브 영상
     demoVideoPC: videoCctvPC,
     demoVideoMobile: videoCctvMobile,
   },
@@ -158,8 +158,8 @@ export const projectsData = [
       demo: 'http://3.39.48.77:8000'
     },
     
-    // 🔥 금융 챗봇 영상
-    demoVideo: videoFinancial,
+    // 금융 챗봇 유튜브 영상
+    demoVideoId: videoFinancial,
   },
   
   {
@@ -227,7 +227,7 @@ export const projectsData = [
       demo: '#'
     },
     
-    // 🔥 침수 예측 시스템 영상
-    demoVideo: videoFlood,
+    // 침수 예측 유튜브 영상
+    demoVideoId: videoFlood,
   }
 ];

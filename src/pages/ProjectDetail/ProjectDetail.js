@@ -287,27 +287,30 @@ function ProjectDetail() {
             )}
 
             <div className="video-container">
-              <video 
-                key={project.slug === 'cctv-anomaly-detection' ? activeVideoTab : 'default'}
-                controls
-                className="demo-video"
-                autoPlay
-                loop
-                muted
-                playsInline
-              >
-                <source 
-                  src={
-                    project.slug === 'cctv-anomaly-detection'
-                      ? (activeVideoTab === 'pc'
-                          ? project.demoVideoPC
-                          : project.demoVideoMobile)
-                      : project.demoVideo
-                  }
-                  type="video/mp4"
+              {project.slug === 'cctv-anomaly-detection' ? (
+                <iframe
+                  key={activeVideoTab}
+                  width="100%"
+                  height="480"
+                  src={`https://www.youtube.com/embed/${
+                    activeVideoTab === "pc" ? project.demoVideoPC : project.demoVideoMobile
+                  }?rel=0&controls=1`}
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  className="demo-video"
                 />
-                브라우저가 비디오를 지원하지 않습니다.
-              </video>
+              ) : (
+                <iframe
+                  width="100%"
+                  height="480"
+                  src={`https://www.youtube.com/embed/${project.demoVideoId}?rel=0&controls=1`}
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  className="demo-video"
+                />
+              )}
             </div>
           </section>
 
