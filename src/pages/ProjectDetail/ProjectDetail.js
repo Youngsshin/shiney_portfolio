@@ -286,7 +286,7 @@ function ProjectDetail() {
               </div>
             )}
 
-            <div className="video-container">
+            <div className="demo-video-container">
               {project.slug === 'cctv-anomaly-detection' ? (
                 <iframe
                   key={activeVideoTab}
