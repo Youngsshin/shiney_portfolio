@@ -3,13 +3,13 @@ import mockupImage1 from '../assets/Images/projects_mockup_01.png';
 import keyfeatureImage1 from '../assets/Images/Key_Features_img_01.png';
 import keyfeatureImage2 from '../assets/Images/Key_Features_img_02.png';
 import keyfeatureImage3 from '../assets/Images/Key_Features_img_03.png';
-import demoVideo1 from '../assets/videos/금융챗봇금융서비스.mp4';
+// import demoVideo1 from '/videos/금융챗봇금융서비스.mp4';
 
 import mockupImage2 from '../assets/Images/projects_mockup_02.png';
 import keyfeature2Image1 from '../assets/Images/Key_Features_img2_06.png';
 import keyfeature2Image2 from '../assets/Images/Key_Features_img2_10.png';
 import keyfeature2Image3 from '../assets/Images/Key_Features_img2_11.png';
-import demoVideo2 from '../assets/videos/장마철침수위험예측시스템.mp4';
+// import demoVideo2 from '/videos/장마철침수위험예측시스템.mp4';
 
 import mockupImage3 from '../assets/Images/projects_mockup_03.png';
 import keyfeature3Image1 from '../assets/Images/Key_Features_img3_01.png';
@@ -83,7 +83,7 @@ export const projectsData = [
       demo: '#'
     },
     
-    demoVideo: demoVideo2
+    // demoVideo: demoVideo2
   },
   {
     id: 2,
@@ -150,7 +150,7 @@ export const projectsData = [
       demo: 'http://3.39.48.77:8000'
     },
     
-    demoVideo: demoVideo1
+    demoVideo: '/videos/금융챗봇금융서비스.mp4',
   },
   
   {
@@ -218,6 +218,6 @@ export const projectsData = [
       demo: '#'
     },
     
-    demoVideo: demoVideo2
+    demoVideo: '/videos/장마철침수위험예측시스템.mp4',
   }
 ];

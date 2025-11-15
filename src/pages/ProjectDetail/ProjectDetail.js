@@ -293,13 +293,14 @@ function ProjectDetail() {
                 className="demo-video"
               >
                 <source 
-                  src={project.slug === 'cctv-anomaly-detection' 
-                    ? (activeVideoTab === 'pc' 
-                        ? require('../../assets/videos/이상행동감지시스템_pc.mp4')
-                        : require('../../assets/videos/이상행동감지시스템_m.mp4'))
-                    : project.demoVideo
-                  } 
-                  type="video/mp4" 
+                  src={
+                    project.slug === 'cctv-anomaly-detection'
+                      ? (activeVideoTab === 'pc'
+                          ? "/videos/이상행동감지시스템_pc.mp4"
+                          : "/videos/이상행동감지시스템_m.mp4")
+                      : project.demoVideo
+                  }
+                  type="video/mp4"
                 />
                 브라우저가 비디오를 지원하지 않습니다.
               </video>
