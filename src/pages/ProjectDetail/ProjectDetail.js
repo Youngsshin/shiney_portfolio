@@ -290,8 +290,6 @@ function ProjectDetail() {
               {project.slug === 'cctv-anomaly-detection' ? (
                 <iframe
                   key={activeVideoTab}
-                  width="100%"
-                  height="600"
                   src={`https://www.youtube.com/embed/${
                     activeVideoTab === "pc" ? project.demoVideoPC : project.demoVideoMobile
                   }?start=0&rel=0&controls=1`}
@@ -302,8 +300,6 @@ function ProjectDetail() {
                 />
               ) : (
                 <iframe
-                  width="100%"
-                  height="600"
                   src={`https://www.youtube.com/embed/${project.demoVideoId}?start=0&rel=0&controls=1`}
                   frameBorder="0"
                   allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
