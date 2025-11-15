@@ -294,7 +294,7 @@ function ProjectDetail() {
                   height="600"
                   src={`https://www.youtube.com/embed/${
                     activeVideoTab === "pc" ? project.demoVideoPC : project.demoVideoMobile
-                  }?rel=0&controls=1`}
+                  }?start=0&rel=0&controls=1`}
                   frameBorder="0"
                   allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
@@ -304,7 +304,7 @@ function ProjectDetail() {
                 <iframe
                   width="100%"
                   height="600"
-                  src={`https://www.youtube.com/embed/${project.demoVideoId}?rel=0&controls=1`}
+                  src={`https://www.youtube.com/embed/${project.demoVideoId}?start=0&rel=0&controls=1`}
                   frameBorder="0"
                   allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
