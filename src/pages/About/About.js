@@ -22,13 +22,44 @@ function About() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Scroll Animation - Intersection Observer
+  useEffect(() => {
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -100px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-in');
+        }
+      });
+    }, observerOptions);
+
+    // 애니메이션 적용할 요소들 선택
+    const animateElements = document.querySelectorAll('.animate-on-scroll');
+    animateElements.forEach(el => observer.observe(el));
+
+    return () => {
+      animateElements.forEach(el => observer.unobserve(el));
+    };
+  }, []);
+
   return (
     <div className="about-page-new">
       {/* Hero Section with Image */}
       <section className="about-hero-with-image">
-        <div className="about-hero-text-section">
-          <div className="about-hero-about">About</div>
-          <div className="about-hero-me">ME</div>
+        <div className="about-hero-content">
+          <div className="about-hero-text">
+            <h1 className="about-hero-title">About Me</h1>
+            <div className="about-hero-description-row">
+              <p className="about-hero-description">
+                Building AI services with user experience in mind
+              </p>
+              <div className="about-hero-scroll">(SCROLL)</div>
+            </div>
+          </div>
         </div>
         <div className="about-hero-image-container">
           <img 
@@ -54,20 +85,35 @@ function About() {
             <div className="about-story-subtitle">{aboutData.story.leftSubtitle}</div>
           </div>
           <div className="about-story-right">
-            <div className="about-story-header">
+            <div className="about-story-header animate-on-scroll">
               <h4>{aboutData.story.mainTitle}</h4>
             </div>
             <div className="about-story-content">
               {aboutData.story.content.map((paragraph, index) => (
-                <p key={index}>{paragraph}</p>
+                <p key={index} className="animate-on-scroll" style={{ animationDelay: `${index * 0.1}s` }}>
+                  {paragraph}
+                </p>
               ))}
             </div>
 
-            <div className="about-story-image-wrapper">
+            <div className="about-story-image-wrapper animate-on-scroll">
               <img src={aboutData.profile.profileImage} alt={aboutData.profile.name} />
             </div>
 
-            <div className="about-certifications">
+            {/* Skills Section */}
+            <div className="about-skills animate-on-scroll">
+              <h4>{aboutData.skills.title}</h4>
+              <div className="about-skills-grid">
+                {aboutData.skills.categories.map((category, index) => (
+                  <div key={index} className="about-skill-category">
+                    <span className="about-skill-category-name">{category.name}</span>
+                    <span className="about-skill-items">{category.items.join(', ')}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="about-certifications animate-on-scroll">
               <h4>{aboutData.certifications.title}</h4>
               <div className="about-cert-grid">
                 {aboutData.certifications.items.map((cert, index) => (
@@ -80,11 +126,13 @@ function About() {
               </div>
             </div>
 
-            <div className="about-awards">
+            <div className="about-awards animate-on-scroll">
               <h4>{aboutData.awards.title}</h4>
-              <div className="about-award-header">
-                <span>{aboutData.awards.category}</span>
-              </div>
+              {aboutData.awards.category && (
+                <div className="about-award-header">
+                  <span>{aboutData.awards.category}</span>
+                </div>
+              )}
               {aboutData.awards.items.map((award, index) => (
                 <div key={index} className="about-award-item">
                   <span className="about-cert-dot">●</span>
@@ -93,29 +141,20 @@ function About() {
                 </div>
               ))}
             </div>
+
+            {/* Contact Section */}
+            <div className="about-contact animate-on-scroll">
+              <h4>{aboutData.contact.title}</h4>
+              <div className="about-contact-grid">
+                {aboutData.contact.items.map((item, index) => (
+                  <div key={index} className="about-contact-item">
+                    <span className="about-contact-label">{item.label}</span>
+                    <a href={item.link} className="about-contact-value">{item.value}</a>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
-        </div>
-      </section>
-
-      {/* Contact Section */}
-      <section className="about-contact-new">
-        <div className="about-contact-script">{aboutData.contact.script}</div>
-        <div className="about-contact-bold">{aboutData.contact.bold}</div>
-      </section>
-
-      {/* Bottom Links */}
-      <section className="about-bottom-links">
-        <div className="about-links-left">
-          <span>(P)</span>
-          {aboutData.bottomLinks.left.map((link, index) => (
-            <a key={index} href={link.url}>{link.text}</a>
-          ))}
-        </div>
-        <div className="about-links-right">
-          <span>(S)</span>
-          {aboutData.bottomLinks.right.map((link, index) => (
-            <a key={index} href={link.url}>{link.text}</a>
-          ))}
         </div>
       </section>
     </div>

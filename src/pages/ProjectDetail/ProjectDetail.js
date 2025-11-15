@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { projectsData } from '../../data/projectsData';
+import CheckSquareIcon from '../../components/icons/CheckSquareIcon';
 import './ProjectDetail.css';
 
 function ProjectDetail() {
@@ -9,6 +10,7 @@ function ProjectDetail() {
   const [project, setProject] = useState(null);
   const [loading, setLoading] = useState(true);
   const [activeSection, setActiveSection] = useState('overview');
+  const [activeVideoTab, setActiveVideoTab] = useState('pc');
   const heroImageRef = useRef(null);
 
   const sectionRefs = {
@@ -265,12 +267,40 @@ function ProjectDetail() {
           {/* Demo Section */}
           <section id="demo" ref={sectionRefs.demo} className="content-section">
             <h2 className="section-title">Demo Video</h2>
+            
+            {/* Video Tabs - cctv-anomaly-detection 프로젝트에서만 표시 */}
+            {project.slug === 'cctv-anomaly-detection' && (
+              <div className="video-tabs">
+                <button 
+                  className={`video-tab ${activeVideoTab === 'pc' ? 'active' : ''}`}
+                  onClick={() => setActiveVideoTab('pc')}
+                >
+                  PC Version
+                </button>
+                <button 
+                  className={`video-tab ${activeVideoTab === 'mobile' ? 'active' : ''}`}
+                  onClick={() => setActiveVideoTab('mobile')}
+                >
+                  Mobile Version
+                </button>
+              </div>
+            )}
+
             <div className="video-container">
               <video 
+                key={project.slug === 'cctv-anomaly-detection' ? activeVideoTab : 'default'}
                 controls 
                 className="demo-video"
               >
-                <source src={project.demoVideo} type="video/mp4" />
+                <source 
+                  src={project.slug === 'cctv-anomaly-detection' 
+                    ? (activeVideoTab === 'pc' 
+                        ? require('../../assets/videos/이상행동감지시스템_pc.mp4')
+                        : require('../../assets/videos/이상행동감지시스템_m.mp4'))
+                    : project.demoVideo
+                  } 
+                  type="video/mp4" 
+                />
                 브라우저가 비디오를 지원하지 않습니다.
               </video>
             </div>
@@ -315,7 +345,10 @@ function ProjectDetail() {
             <h2 className="section-title">{project.results.title}</h2>
             <ul className="results-list">
               {project.results.achievements.map((achievement, index) => (
-                <li key={index}>{achievement}</li>
+                <li key={index}>
+                  <CheckSquareIcon size={20} color="#000" />
+                  <span>{achievement}</span>
+                </li>
               ))}
             </ul>
           </section>

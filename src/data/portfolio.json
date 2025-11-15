@@ -1,0 +1,72 @@
+[
+  {
+    "id": "profile-01",
+    "type": "profile",
+    "text": "김영신은 AI 및 프론트엔드 개발자로, Flask와 React 기반의 이상행동 감지 시스템과 지능형 금융상담 챗봇을 개발한 경험이 있다. 머신러닝, 데이터 처리, 모델 서빙까지 전 과정에 능숙하다."
+  },
+  {
+    "id": "skills-01",
+    "type": "skills",
+    "text": "언어 및 프레임워크: Python 3.10, Flask 3.1, Django 5.2, React, JavaScript, HTML5, CSS3, Bootstrap, Jinja2."
+  },
+  {
+    "id": "skills-02",
+    "type": "skills",
+    "text": "AI 및 머신러닝: LightGBM, XGBoost, Random Forest, CatBoost, CNN, RNN, Transformer, NLP, LLM(RAG), OpenCV, scikit-learn, Pandas, NumPy."
+  },
+  {
+    "id": "skills-03",
+    "type": "skills",
+    "text": "DB 및 배포 환경: SQLite, MySQL, PostgreSQL, AWS EC2, Git, Hugging Face, OpenAI API, LangChain, Pinecone."
+  },
+  {
+    "id": "project-01",
+    "type": "project",
+    "text": "지능형 금융상담 챗봇 및 금융상품 추천 AI 시스템은 미국 연준 소비자 금융 조사(SCF) 데이터 22,975건을 분석하여 LightGBM과 XGBoost 모델을 학습하고, 다중 금융상품 분류 시스템을 구축한 프로젝트이다. Django 기반 5개 앱 구조를 설계하고 AWS EC2에 배포했다."
+  },
+  {
+    "id": "project-01-detail",
+    "type": "project",
+    "text": "불균형 데이터 문제를 class_weight='balanced'로 해결하고 MultiOutputClassifier를 적용하여 5개 금융상품(단기금융상품펀드, 양도성예금증서, 비머니마켓펀드, 주식보유, 퇴직준비금유동성)을 동시에 예측했다. LightGBM 모델은 정확도 87.6%, F1-score 71.7%, Recall 74.1%를 달성했다."
+  },
+  {
+    "id": "project-01-web",
+    "type": "project",
+    "text": "웹 구현은 Django 프레임워크를 사용하였으며, 사용자 인증과 세션 관리 기능을 포함한 금융상품 추천 인터페이스를 제작했다. 5개 앱 구조(accounts, home, product_recommendation, customer_support, chatbot)를 설계하여 유지보수가 용이한 구조를 만들었다."
+  },
+  {
+    "id": "project-02",
+    "type": "project",
+    "text": "장마철 침수 위험 예측 시스템은 약 227,000개의 기상 데이터를 활용하여 침수 위험도를 예측하는 Flask 기반 웹 서비스다. Random Forest, XGBoost, LightGBM, CatBoost 등 4가지 모델을 앙상블하여 실시간 예측 정확도를 향상시켰다."
+  },
+  {
+    "id": "project-02-web",
+    "type": "project",
+    "text": "Flask 프레임워크로 6개 페이지, 12개 API 구조를 설계하여 실시간 예측과 데이터 시각화를 지원했다. Chart.js를 이용한 시각화 인터페이스로 지역별 침수 위험도를 표시하고, 1초 이내의 실시간 예측 처리를 구현했다."
+  },
+  {
+    "id": "project-03",
+    "type": "project",
+    "text": "불량인간 판별 시스템은 CCTV 영상을 분석해 이상행동을 감지하는 Python 머신러닝 기반 프로젝트이다. OpenCV로 영상 전처리를 수행하고 Random Forest와 SVM 앙상블 모델을 통해 이상행동 분류 정확도를 높였다."
+  },
+  {
+    "id": "project-03-detail",
+    "type": "project",
+    "text": "이 시스템은 움직임 속도, 방향, 체류 시간, 자세 등의 특징을 분석해 절도, 폭력 등 비정상 행동을 탐지한다. 감지된 이벤트는 관리자에게 실시간 알림으로 전달되며, Flask 대시보드에서 즉시 확인 가능하다."
+  },
+  {
+    "id": "experience-01",
+    "type": "experience",
+    "text": "㈜에이와이엠에서 홈페이지 제작 및 디자인 업무를 수행하며, 프론트엔드 개발과 UI/UX 설계 경험을 쌓았다. 이후 AI 분야로 전향하여 데이터 분석, 모델링, 웹 통합 경험을 확립했다."
+  },
+  {
+    "id": "education-01",
+    "type": "education",
+    "text": "제주한라대학교 호텔외식조리학과를 졸업하고, 이후 멀티미디어콘텐츠제작, AI-X 융복합 인재양성, YOLO기반 부트캠프 등의 교육 과정을 수료했다."
+  },
+  {
+    "id": "vision-01",
+    "type": "vision",
+    "text": "AI 기술을 활용해 실제 서비스 문제를 해결하는 개발자로 성장하는 것을 목표로 하며, LLM과 Transformer 기반의 지능형 AI 서비스 개발에 관심이 있다."
+  }
+]

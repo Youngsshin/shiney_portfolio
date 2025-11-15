@@ -13,6 +13,7 @@ import mainIconI from '../../assets/Images/main_icon_I.svg';
 import mainIconY from '../../assets/Images/main_icon_Y.svg';
 import mainIconS from '../../assets/Images/main_icon_S.svg';
 import './home.css';
+// import Chatbot from "../../components/Chatbot";
 
 function Home() {
   const navigate = useNavigate();
@@ -44,6 +45,9 @@ function Home() {
   };
 
   useEffect(() => {
+    // 🔥 모바일 체크
+    const isMobile = window.innerWidth <= 1024;
+
     // 페이지 진입 시 스크롤 복구
     document.body.style.overflow = '';
     document.body.style.overflowY = '';
@@ -326,27 +330,37 @@ function Home() {
     // 초기화
     initHeroShapeEffect();
 
-    const scrollSection = document.getElementById('horizontal-scroll');
-    if (scrollSection) {
-      scrollSection.addEventListener('mouseenter', enterHorizontalMode);
-      scrollSection.addEventListener('mouseleave', exitHorizontalMode);
+    // 🔥 데스크탑에서만 가로 스크롤 이벤트 등록
+    if (!isMobile) {
+      const scrollSection = document.getElementById('horizontal-scroll');
+      if (scrollSection) {
+        scrollSection.addEventListener('mouseenter', enterHorizontalMode);
+        scrollSection.addEventListener('mouseleave', exitHorizontalMode);
+      }
+
+      const keydownHandler = (e) => {
+        if (!isInHorizontalMode) return;
+        if (e.key === 'ArrowRight') moveToBox(currentBoxIndex + 1);
+        else if (e.key === 'ArrowLeft') moveToBox(currentBoxIndex - 1);
+      };
+      document.addEventListener('keydown', keydownHandler);
+
+      // cleanup에도 추가
+      var cleanupKeydown = () => {
+        document.removeEventListener('keydown', keydownHandler);
+      };
     }
 
-    const keydownHandler = (e) => {
-      if (!isInHorizontalMode) return;
-      if (e.key === 'ArrowRight') moveToBox(currentBoxIndex + 1);
-      else if (e.key === 'ArrowLeft') moveToBox(currentBoxIndex - 1);
-    };
-
     window.addEventListener('scroll', handleAboutAnimation);
-    document.addEventListener('keydown', keydownHandler);
     handleAboutAnimation();
     handleHashScroll();
     window.addEventListener('hashchange', handleHashScroll);
 
     return () => {
       window.removeEventListener('scroll', handleAboutAnimation);
-      document.removeEventListener('keydown', keydownHandler);
+      if (!isMobile && typeof cleanupKeydown === 'function') {
+        cleanupKeydown();
+      }
       if (horizontalScrollHandlerRef.current) {
         window.removeEventListener('wheel', horizontalScrollHandlerRef.current);
       }
@@ -429,6 +443,18 @@ function Home() {
           <div className="box-container" id="boxContainer">
             <div
               className="box box-1"
+              onClick={() => handleProjectClick('cctv-anomaly-detection')}
+              style={{ backgroundImage: `url(${mockupImage3})` }}
+            >
+              <div className="box-content">
+                <h2 className="box-title">이상행동 감지 시스템</h2>
+                <p className="box-description">
+                  CCTV 영상을 실시간 분석하여 매장 내 이상행동을 감지하고 관리자에게 알림을 제공하는 감지 시스템을 개발했습니다.
+                </p>
+              </div>
+            </div>
+            <div
+              className="box box-2"
               onClick={() => handleProjectClick('ai-chatbot-assistant')}
               style={{ backgroundImage: `url(${mockupImage1})` }}
             >
@@ -441,7 +467,7 @@ function Home() {
             </div>
 
             <div
-              className="box box-2"
+              className="box box-3"
               onClick={() => handleProjectClick('ai-image-generator')}
               style={{ backgroundImage: `url(${mockupImage2})` }}
             >
@@ -449,19 +475,6 @@ function Home() {
                 <h2 className="box-title">장마철 침수 위험 예측 시스템</h2>
                 <p className="box-description">
                   4가지 AI 모델 앙상블 기반 침수 예측 시스템 구축을 통한 실시간 지역별 침수 위험도 분석 및 재난 예방 서비스를 제공하는 플랫폼을 개발했습니다.
-                </p>
-              </div>
-            </div>
-
-            <div
-              className="box box-3"
-              onClick={() => handleProjectClick('ml-data-analyzer')}
-              style={{ backgroundImage: `url(${mockupImage3})` }}
-            >
-              <div className="box-content">
-                <h2 className="box-title">이상행동 감지 시스템</h2>
-                <p className="box-description">
-                  CCTV 영상을 실시간 분석하여 매장 내 이상행동을 감지하고 관리자에게 알림을 제공하는 감지 시스템을 개발했습니다.
                 </p>
               </div>
             </div>
@@ -504,14 +517,17 @@ function Home() {
           <div className="contact-info">
             <h4>SOCIALS</h4>
             <p>
-              <a href="#">Github</a>
+              <a href="https://github.com/youngsshin" target='_blank'>Github</a>
             </p>
-            <p>
+            {/* <p>
               <a href="#">LinkedIn</a>
-            </p>
+            </p> */}
           </div>
         </div>
       </section>
+
+      {/* 💬 챗봇 추가 */}
+      {/* <Chatbot /> */}
     </motion.div>
   );
 }

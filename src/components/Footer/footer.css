@@ -60,3 +60,35 @@
             font-size: 16px;
             font-weight: 600;
         }
+
+/* 🔥 반응형 - 모바일 (768px 이하) */
+@media (max-width: 768px) {
+    .footer-info{
+        padding: 0 20px;
+        font-size: 14px;
+    }
+    .scrolling-text{
+        height: 100px;
+        margin-top: 60px;
+    }
+
+    .scroll-top{
+        width: 30px;
+        height: 30px;
+    }
+
+    .scrolling-item{
+        font-size: 100px;
+    }
+}
+
+/* 🔥 반응형 - 태블릿 (769px ~ 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .scrolling-text{
+        height: 180px;
+        margin-top: 100px;
+    }
+    .scrolling-item{
+        font-size: 180px;
+    }
+}

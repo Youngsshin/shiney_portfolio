@@ -1,28 +1,45 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# ===============================
+# 📦 Node / React 관련 무시 파일
+# ===============================
 
-# dependencies
+# Dependencies
 /node_modules
 /.pnp
 .pnp.js
 
-# testing
-/coverage
+# Build output (CRA / Vite)
+build/
+dist/
 
-# production
-/build
+# Testing
+coverage/
 
-# misc
-.DS_Store
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
-
+# Logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+pnpm-debug.log*
 
-# Design files
+# Misc
+.DS_Store
+Thumbs.db
+
+
+# ===============================
+# 🔐 환경 변수 (절대 공개 금지)
+# ===============================
+.env
+.env.local
+.env.*.local
+.env.production
+.env.development
+.env.test
+
+
+# ===============================
+# 📁 디자인, 대용량 미디어 파일
+# (원하는 경우만 올리고 기본은 제외)
+# ===============================
 *.psd
 *.ai
 *.sketch
@@ -32,3 +49,56 @@ yarn-error.log*
 *.mp4
 *.mov
 *.avi
+*.mkv
+*.wav
+
+
+# ===============================
+# 🐍 Python 관련 무시 파일
+# ===============================
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environments
+venv/
+env/
+.venv/
+.yes_env/
+yspri_env/
+
+
+# ===============================
+# 🧩 포트폴리오 챗봇 관련 (프론트에 필요 없음)
+# ===============================
+backend/
+chat_logs/
+
+
+# ===============================
+# ⚙️ Temporary / Cache
+# ===============================
+tmp/
+temp/
+*.swp
+*.swo
+
+# VSCode
+.vscode/
+.settings/
+
+
+# ===============================
+# 💡 OS / Finder 관련
+# ===============================
+.DS_Store
+.AppleDouble
+.LSOverride
+
+
+# ===============================
+# 🔒 IDE
+# ===============================
+.idea/
+*.iml

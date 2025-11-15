@@ -79,11 +79,6 @@
     transform: translateY(0);
 }
 
-/* .about-container {
-    max-width: 1400px;
-    margin: 0 auto;
-} */
-
 .about-top {
     display: flex;
     align-items: flex-start;
@@ -167,7 +162,7 @@
     color: #000;
 }
 
-/* Projects Section - Enhanced */
+/* Projects Section */
 .projects-section {
     padding: 0px 0px;
     background: #fff;
@@ -176,7 +171,6 @@
 .projects-header {
     display: flex;
     justify-content: space-between;
-    /*align-items: baseline;*/
     padding: 0 30px;
 }
 
@@ -216,23 +210,6 @@
     transform: translateY(-5px);
 }
 
-.project-card:nth-child(1) {
-    background-image: url();
-}
-
-.project-card:nth-child(2) {
-    background-image: url();
-}
-
-.project-card:nth-child(3) {
-    background-image: url();
-}
-
-.project-card:nth-child(4) {
-    background-image: url();
-}
-
-/* Overlay effect */
 .project-overlay {
     position: absolute;
     bottom: 0;
@@ -442,7 +419,7 @@
     opacity: 1;
 }
 
-/* Large Box Section - Modified */
+/* Large Box Section */
 .large-box-section {
     width: 100%;
     display: flex;
@@ -453,8 +430,6 @@
 
 .large-box {
     width: calc(100% - 0px);
-    /*max-width: 1452px;*/
-    /*height: 768px;*/
     background: #F75270;
     border-radius: 32px;
     position: relative;
@@ -620,13 +595,357 @@
     z-index: 10;
 }
 
-/* 초기 이미지 트랜지션 제거 */
 .balloon-shape-wrapper.initial {
     transition: none;
 }
 
+/* 🔥 반응형 - 모바일 (768px 이하) */
 @media (max-width: 768px) {
+    /* Hero Section */
+    .hero {
+        height: 30vh;
+        padding: 0 20px 50px;
+        justify-content: flex-start;
+        padding-top: 100px;
+    }
+
+    .hero-title {
+        font-size: clamp(60px, 15vw, 120px);
+        margin: 0px 0 30px 0;
+    }
+
+    .hero-description {
+        font-size: clamp(20px, 5vw, 28px);
+        margin-bottom: 30px;
+    }
+
+    .hero-footer {
+        display: flex;
+        /* flex-direction: column; */
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .hero-studio {
+        font-size: 14px;
+    }
+
+    .hero-scroll {
+        font-size: 14px;
+    }
+
+    /* Hero Mouse Effect 숨기기 */
     .hero-shapes-container {
         display: none;
+    }
+
+    /* About Section */
+    .about-section {
+        padding: 60px 0;
+        border-top-left-radius: 40px;
+        border-top-right-radius: 40px;
+    }
+
+    .about-top {
+        flex-direction: column;
+        margin: 0 20px;
+    }
+
+    .about-arrow {
+        font-size: 30px;
+        margin-bottom: 20px;
+    }
+
+    .about-title {
+        font-size: 28px;
+        margin: 0 0 60px 0;
+    }
+
+    .about-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .about-left {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+
+    .about-right {
+        margin-right: 0;
+        max-width: 100%;
+    }
+
+    .about-text {
+        font-size: 14px;
+        max-width: 100%;
+    }
+
+    /* Projects Section */
+    .projects-header {
+        flex-direction: column;
+        padding: 0 20px;
+        gap: 10px;
+    }
+
+    .projects-title {
+        font-size: clamp(50px, 13vw, 100px);
+        margin: 60px 0 5px 0;
+    }
+
+    .projects-scroll {
+        margin: 0 0 20px 0;
+        align-self: flex-start;
+    }
+
+    /* 🔥 가로 스크롤 → 세로 스크롤 */
+    .scroll-section {
+        height: auto;
+        padding: 0 20px;
+        overflow: visible;
+    }
+
+    .box-container {
+        flex-direction: column;
+        gap: 20px;
+        transform: none !important;
+    }
+
+    .box {
+        width: 100%;
+        height: 400px;
+        min-height: 400px;
+    }
+
+    .box-content {
+        padding: 30px;
+    }
+
+    .box-title {
+        font-size: 1.4rem;
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    .box-description {
+        font-size: 0.9rem;
+        max-width: 100%;
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    /* Large Box Section */
+    .large-box-section {
+        padding: 20px 0 0 0;
+    }
+
+    .large-box {
+        margin: 0 20px;
+        border-radius: 24px;
+    }
+
+    .large-box-content {
+        padding: 40px 30px 0 30px;
+    }
+
+    .large-box-main-text {
+        font-size: clamp(1.2rem, 5vw, 1.8rem);
+        margin: 0 0 150px 0;
+    }
+
+    .sliding-text-container {
+        padding: 20px 0;
+    }
+
+    .sliding-text span {
+        font-size: 14px;
+        padding-right: 30px;
+    }
+
+    /* Contact Section */
+    .contact-section {
+        padding: 80px 20px 60px;
+    }
+
+    .contact-title {
+        font-size: 32px;
+        margin-bottom: 30px;
+    }
+
+    .contact-content {
+        grid-template-columns: 1fr;
+        gap: 0px;
+    }
+
+    .contact-info h4 {
+        font-size: 14px;
+    }
+
+    .contact-info p {
+        font-size: 14px;
+    }
+}
+
+/* 🔥 반응형 - 태블릿 (769px ~ 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    /* Hero Section */
+    .hero {
+        padding: 0 30px 70px;
+        margin-top: 150px;
+        height: 40vh;
+    }
+
+    .hero-title {
+        font-size: clamp(100px, 15vw, 150px);
+        margin: 0px 0 60px 0;
+    }
+
+    .hero-description {
+        font-size: clamp(22px, 4vw, 28px);
+        margin-bottom: 40px;
+    }
+
+    /* About Section */
+    .about-section {
+        padding: 80px 0;
+        border-top-left-radius: 60px;
+        border-top-right-radius: 60px;
+    }
+
+    .about-top {
+        flex-direction: column;
+        margin: 0 30px;
+    }
+
+    .about-arrow {
+        font-size: 35px;
+        margin-bottom: 20px;
+    }
+
+    .about-title {
+        font-size: 32px;
+        margin: 0 0 80px 0;
+    }
+
+    .about-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .about-left {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+
+    .about-right {
+        margin-right: 0;
+        max-width: 100%;
+    }
+
+    .about-text {
+        font-size: 15px;
+        max-width: 100%;
+    }
+
+    /* Projects Section */
+    .projects-header {
+        padding: 0 30px;
+    }
+
+    .projects-title {
+        font-size: clamp(80px, 12vw, 120px);
+        margin: 80px 0 30px 0;
+    }
+
+    .projects-scroll {
+        margin: 150px 0 30px 0;
+    }
+
+    /* 🔥 세로 스크롤 */
+    .scroll-section {
+        height: auto;
+        padding: 0 30px;
+        overflow: visible;
+    }
+
+    .box-container {
+        width: 100%;
+        flex-direction: column;
+        gap: 20px;
+        transform: none !important;
+    }
+
+    .box {
+        width: 100%;
+        height: 450px;
+        border-radius: 28px;
+    }
+
+    .box-content {
+        padding: 35px;
+    }
+
+    .box-title {
+        font-size: 1.6rem;
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    .box-description {
+        font-size: 0.95rem;
+        max-width: 100%;
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    /* Large Box Section */
+    .large-box-section {
+        padding: 25px 0 0 0;
+    }
+
+    .large-box {
+        margin: 0 30px;
+        border-radius: 28px;
+    }
+
+    .large-box-content {
+        padding: 50px 40px 0 40px;
+    }
+
+    .large-box-main-text {
+        font-size: clamp(1.5rem, 4vw, 2.5rem);
+        margin: 0 0 200px 0;
+    }
+
+    .sliding-text-container {
+        padding: 30px 0;
+    }
+
+    .sliding-text span {
+        font-size: 15px;
+        padding-right: 40px;
+    }
+
+    /* Contact Section */
+    .contact-section {
+        padding: 100px 30px 70px;
+    }
+
+    .contact-title {
+        font-size: 38px;
+        margin-bottom: 50px;
+    }
+
+    .contact-content {
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+    }
+
+    .contact-info h4 {
+        font-size: 15px;
+    }
+
+    .contact-info p {
+        font-size: 15px;
     }
 }

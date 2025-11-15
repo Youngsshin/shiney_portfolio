@@ -1,7 +1,7 @@
 /* About.css - Joe Garner Style (No Header/Footer Override) */
 
 .about-page-new {
-  background: #f5f5f0;
+  background: #fff;
   color: #000;
   min-height: 100vh;
   padding-top: 0;
@@ -9,41 +9,57 @@
 
 /* Hero Section with Image */
 .about-hero-with-image {
-  padding: 80px 0 0 0;
-  background: #f5f5f0;
+  padding: 180px 0px 0 0px;
+  background: #fff;
 }
 
-.about-hero-text-section {
+.about-hero-content {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: flex-start;
-  padding: 0 50px;
-  margin-bottom: -80px;
-  position: relative;
-  z-index: 5;
+  margin-bottom: 40px;
+  padding: 0 30px;
 }
 
-.about-hero-about {
-  font-family: 'Georgia', 'Times New Roman', serif;
-  font-size: clamp(100px, 18vw, 280px);
-  font-style: italic;
-  font-weight: 300;
-  line-height: 0.8;
-  margin-top: 20px;
-  color: #000;
+.about-hero-text {
+  flex: 1;
 }
 
-.about-hero-me {
-  font-size: clamp(150px, 30vw, 600px);
+.about-hero-title {
+  font-size: clamp(80px, 12vw, 200px);
   font-weight: 900;
-  line-height: 0.7;
-  letter-spacing: -0.03em;
-  align-self: flex-end;
-  margin-right: 50px;
-  color: #000;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  margin: 0 0 15px 0;
+  text-transform: uppercase;
+}
+
+.about-hero-description-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+}
+
+.about-hero-description {
+  font-size: clamp(18px, 2vw, 24px);
+  line-height: 1.4;
+  max-width: 600px;
+  margin: 0;
+  font-weight: 400;
+}
+
+.about-hero-scroll {
+  font-size: 12px;
+  letter-spacing: 2px;
+  font-weight: 500;
+  text-transform: uppercase;
+  white-space: nowrap;
 }
 
 .about-hero-image-container {
+  max-width: 100%;
+  margin: 0;
   width: 100%;
   height: 500px;
   overflow: hidden;
@@ -77,17 +93,16 @@
   font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 2px;
-  margin-bottom: 60px;
+  margin-bottom: 0px;
   font-weight: 500;
 }
 
 .about-quote-large {
-  font-size: clamp(40px, 7vw, 110px);
-  font-weight: 400;
+  font-size: clamp(40px, 6vw, 110px);
+  font-weight: 900;
   line-height: 1.1;
   max-width: 1400px;
   letter-spacing: -0.02em;
-  font-family: 'Georgia', 'Times New Roman', serif;
 }
 
 /* Story Section */
@@ -108,6 +123,7 @@
   position: sticky;
   top: 120px;
   align-self: start;
+  opacity: 0;
 }
 
 .about-story-title {
@@ -130,9 +146,19 @@
   padding-bottom: 50px;
 }
 
+/* Scroll Animation Styles */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.animate-on-scroll.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .about-story-header {
-  border-top: 2px dotted #000;
-  padding-top: 40px;
   margin-bottom: 40px;
 }
 
@@ -146,7 +172,7 @@
 
 .about-story-content {
   margin-bottom: 60px;
-  border-bottom: 2px dotted #000;
+  border-bottom: 1px solid #000;
   padding-bottom: 60px;
 }
 
@@ -163,16 +189,57 @@
 }
 
 .about-story-image-wrapper img {
-  width: 100%;
+  width: 60%;
   height: auto;
   filter: grayscale(100%);
   display: block;
 }
 
+/* Skills Section */
+.about-skills {
+  margin-bottom: 60px;
+  border-bottom: 1px solid #000;
+  padding-bottom: 60px;
+}
+
+.about-skills h4 {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 30px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.about-skills-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.about-skill-category {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  gap: 20px;
+  font-size: 16px;
+  line-height: 1.6;
+  align-items: start;
+}
+
+.about-skill-category-name {
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+}
+
+.about-skill-items {
+  color: #333;
+}
+
 .about-certifications,
 .about-awards {
   margin-bottom: 60px;
-  border-bottom: 2px dotted #000;
+  border-bottom: 1px solid #000;
   padding-bottom: 60px;
 }
 
@@ -229,6 +296,50 @@
 }
 
 /* Contact Section */
+.about-contact {
+}
+
+.about-contact h4 {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 30px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.about-contact-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.about-contact-item {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 20px;
+  font-size: 16px;
+  line-height: 1.6;
+  align-items: center;
+}
+
+.about-contact-label {
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+}
+
+.about-contact-value {
+  color: #000;
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+
+.about-contact-value:hover {
+  opacity: 0.6;
+}
+
+/* Contact Section New */
 .about-contact-new {
   min-height: 100vh;
   display: flex;
@@ -292,15 +403,250 @@
   opacity: 0.6;
 }
 
-/* Responsive */
-@media (max-width: 1200px) {
+/* 🔥 반응형 - 모바일 (768px 이하) */
+@media (max-width: 768px) {
+  /* Hero Section */
+  .about-hero-with-image {
+    padding: 100px 0 0 0;
+  }
+
+  .about-hero-content {
+    flex-direction: column;
+    margin-bottom: 30px;
+    padding: 0 20px;
+  }
+
+  .about-hero-title {
+    font-size: clamp(50px, 12vw, 70px);
+    margin-bottom: 15px;
+  }
+
+  .about-hero-description-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .about-hero-description {
+    font-size: 16px;
+  }
+
+  .about-hero-scroll {
+    font-size: 11px;
+  }
+
+  .about-hero-image-container {
+    height: 300px;
+  }
+
+  /* Quote Section */
+  .about-quote-section {
+    padding: 80px 20px;
+    min-height: auto;
+  }
+
+  .about-quote-small {
+    font-size: 11px;
+    margin-bottom: 20px;
+  }
+
+  .about-quote-large {
+    font-size: clamp(28px, 7vw, 36px);
+  }
+
+  /* Story Section */
+  .about-story-section {
+    padding: 60px 20px 100px;
+  }
+
   .about-story-grid {
-    grid-template-columns: 250px 1fr;
-    gap: 60px;
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .about-story-left {
+    position: static;
+    display: none;
+    flex-direction: column;
+    gap: 20px;
+    opacity: 1;
+  }
+
+  .about-story-title {
+    font-size: clamp(50px, 12vw, 60px);
+    margin-bottom: 20px;
+  }
+
+  .about-story-subtitle {
+    font-size: clamp(28px, 7vw, 36px);
+  }
+
+  .about-story-header h4 {
+    font-size: 14px;
+  }
+
+  .about-story-content {
+    margin-bottom: 40px;
+    padding-bottom: 40px;
+  }
+
+  .about-story-content p {
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  .about-story-image-wrapper {
+    width: 200px;
+    margin: 40px 0;
+  }
+
+  /* Skills Section */
+  .about-skills {
+    margin-bottom: 40px;
+    padding-bottom: 40px;
+  }
+
+  .about-skills h4 {
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+
+  .about-skill-category {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .about-skill-category-name {
+    font-size: 13px;
+  }
+
+  .about-skill-items {
+    font-size: 14px;
+  }
+
+  /* Certifications & Awards */
+  .about-certifications,
+  .about-awards {
+    margin-bottom: 40px;
+    padding-bottom: 40px;
+  }
+
+  .about-certifications h4,
+  .about-awards h4 {
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+
+  .about-cert-item,
+  .about-award-item {
+    grid-template-columns: 20px 1fr;
+    gap: 10px;
+    font-size: 14px;
+  }
+
+  .about-cert-source,
+  .about-award-date {
+    grid-column: 2;
+    text-align: left;
+    font-size: 13px;
+    margin-top: 5px;
+  }
+
+  .about-award-header {
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+  }
+
+  .about-award-header span {
+    font-size: 13px;
+  }
+
+  /* Contact Section */
+  .about-contact h4 {
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+
+  .about-contact-item {
+    grid-template-columns: 1fr;
+    gap: 5px;
+  }
+
+  .about-contact-label {
+    font-size: 13px;
+  }
+
+  .about-contact-value {
+    font-size: 14px;
+  }
+
+  /* Contact New */
+  .about-contact-new {
+    padding: 80px 20px;
+    min-height: 60vh;
+  }
+
+  .about-contact-script {
+    font-size: clamp(32px, 8vw, 40px);
+    margin-bottom: 30px;
+  }
+
+  .about-contact-bold {
+    font-size: clamp(60px, 15vw, 80px);
+  }
+
+  /* Bottom Links */
+  .about-bottom-links {
+    flex-direction: column;
+    gap: 20px;
+    padding: 30px 20px;
+  }
+
+  .about-links-left,
+  .about-links-right {
+    font-size: 14px;
   }
 }
 
-@media (max-width: 1024px) {
+/* 🔥 반응형 - 태블릿 (769px ~ 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  /* Hero Section */
+  .about-hero-with-image {
+    padding: 140px 0 0 0;
+  }
+
+  .about-hero-content {
+    margin-bottom: 35px;
+    padding: 0 30px;
+  }
+
+  .about-hero-title {
+    font-size: clamp(70px, 10vw, 120px);
+  }
+
+  .about-hero-description {
+    font-size: clamp(17px, 2.5vw, 20px);
+  }
+
+  .about-hero-image-container {
+    height: 400px;
+  }
+
+  /* Quote Section */
+  .about-quote-section {
+    padding: 90px 40px;
+    min-height: auto; /* 🔥 100vh 제거 */
+  }
+
+  .about-quote-large {
+    font-size: clamp(38px, 5vw, 70px);
+  }
+
+  /* Story Section */
+  .about-story-section {
+    padding: 80px 40px 150px;
+  }
+
   .about-story-grid {
     grid-template-columns: 1fr;
     gap: 40px;
@@ -308,83 +654,91 @@
 
   .about-story-left {
     position: static;
-    display: flex;
+    display: none;
     align-items: baseline;
     gap: 30px;
+    opacity: 1;
   }
 
   .about-story-title {
-    font-size: 80px;
+    font-size: clamp(70px, 10vw, 100px);
+    margin-bottom: 0;
   }
 
   .about-story-subtitle {
-    font-size: 50px;
-  }
-}
-
-@media (max-width: 768px) {
-  .about-hero-new {
-    padding: 0 20px;
+    font-size: clamp(36px, 5vw, 50px);
   }
 
-  .about-hero-big-text {
-    font-size: 80px;
+  .about-story-content {
+    margin-bottom: 50px;
+    padding-bottom: 50px;
   }
 
-  .about-hero-me-text {
-    font-size: 120px;
+  .about-story-content p {
+    font-size: 15px;
   }
 
-  .about-quote-section {
-    padding: 80px 20px;
+  .about-story-image-wrapper {
+    width: 250px;
+    margin: 50px 0;
   }
 
-  .about-quote-large {
-    font-size: 32px;
+  /* Skills */
+  .about-skills {
+    margin-bottom: 50px;
+    padding-bottom: 50px;
   }
 
-  .about-story-section {
-    padding: 60px 20px 100px;
+  .about-skills h4 {
+    font-size: 15px;
   }
 
-  .about-story-left {
-    flex-direction: column;
-    gap: 20px;
+  .about-skill-category {
+    font-size: 15px;
   }
 
-  .about-story-title {
-    font-size: 60px;
+  /* Certifications & Awards */
+  .about-certifications,
+  .about-awards {
+    margin-bottom: 50px;
+    padding-bottom: 50px;
   }
 
-  .about-story-subtitle {
-    font-size: 36px;
-  }
-
-  .about-contact-new {
-    padding: 100px 20px;
-  }
-
-  .about-contact-script {
-    font-size: 40px;
-  }
-
-  .about-contact-bold {
-    font-size: 80px;
-  }
-
-  .about-bottom-links {
-    flex-direction: column;
-    gap: 20px;
-    padding: 30px 20px;
+  .about-certifications h4,
+  .about-awards h4 {
+    font-size: 15px;
   }
 
   .about-cert-item,
   .about-award-item {
-    grid-template-columns: 20px 1fr;
+    font-size: 15px;
   }
 
-  .about-cert-source,
-  .about-award-date {
-    grid-column: 2;
+  /* Contact */
+  .about-contact h4 {
+    font-size: 15px;
+  }
+
+  .about-contact-item {
+    font-size: 15px;
+  }
+
+  /* Contact New */
+  .about-contact-new {
+    padding: 120px 40px;
+  }
+
+  .about-contact-script {
+    font-size: clamp(45px, 7vw, 80px);
+  }
+
+  .about-contact-bold {
+    font-size: clamp(90px, 18vw, 200px);
+  }
+
+  /* Bottom Links */
+  .about-bottom-links {
+    padding: 30px 40px 50px;
+    font-size: 15px;
   }
 }
