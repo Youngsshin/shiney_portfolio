@@ -289,15 +289,19 @@ function ProjectDetail() {
             <div className="video-container">
               <video 
                 key={project.slug === 'cctv-anomaly-detection' ? activeVideoTab : 'default'}
-                controls 
+                controls
                 className="demo-video"
+                autoPlay
+                loop
+                muted
+                playsInline
               >
                 <source 
                   src={
                     project.slug === 'cctv-anomaly-detection'
                       ? (activeVideoTab === 'pc'
-                          ? "/videos/이상행동감지시스템_pc.mp4"
-                          : "/videos/이상행동감지시스템_m.mp4")
+                          ? project.demoVideoPC
+                          : project.demoVideoMobile)
                       : project.demoVideo
                   }
                   type="video/mp4"
