@@ -199,7 +199,7 @@ export const projectsData = [
     features: [
       {
         title: '앙상블 기반 침수 위험 예측 모델',
-        description: '4가지 머신러닝 모델(Random Forest, XGBoost, LightGBM, CatBoost)을 앙상블하여 높은 예측 정확도 달성. 약 227,000개의 기상청 ASOS 데이터를 학습하여 강수량, 습도, 기온 등 다양한 기상 변수를 고려한 침수 위험도 분석. 실시간 예측 처리 시간 1초 이내로 최적화하여 긴급 상황 대응 가능.',
+        description: '팀에서 개발한 RandomForest, XGBoost, LightGBM, CatBoost 기반의 앙상블 모델을 통해 지역별 침수 위험도를 예측하고, 이를 Flask 웹 애플리케이션에서 실시간으로 확인할 수 있도록 구현했습니다. 약 227,000개의 기상 데이터를 기반으로 생성된 모델 예측값을 웹 UI와 연동해, 사용자가 선택한 날짜·지역·AI 모델에 따라 즉시 결과를 받아볼 수 있게 했습니다. 예측 결과는 그래프와 표 형태로 시각화되어 침수 위험 수준을 직관적으로 파악할 수 있습니다.',
         image: keyfeature2Image1
       },
       {
