@@ -28,24 +28,24 @@ export const projectsData = [
     slug: 'cctv-anomaly-detection',
     title: 'AI 기반 CCTV 이상행동 감지 시스템',
     subtitle: 'CCTV 영상 분석 및 이상행동 탐지 플랫폼',
-    shortDescription: 'React + Flask 기반 8가지 이상행동 실시간 감지 및 전도 모델 정확도 97.9% 달성',
+    shortDescription: 'React + Flask 기반 8가지 이상행동 실시간 감지 시스템',
     heroImage: mockupImage3,
     
     overview: {
       duration: '2024.09.27 - 2024.11.11 (6주)',
       role: 'React 프론트엔드 개발, 전도 감지 모델 개발, EDA 및 데이터 전처리, UI/UX 설계, 반응형 구현 (40% 기여)',
       team: '5명',
-      description: 'CCTV 영상을 분석해 폭행, 절도 등의 이상행동을 감지하는 웹 기반 시스템입니다. 회원 전용 대시보드에서 영상 분석을 통해 이상행동을 감지하고, 감지된 순간의 이미지를 저장할 수 있습니다. 이 프로젝트에서 UI/UX 설계, React를 활용한 프론트엔드 개발을 담당했으며, 데이터 전처리 및 EDA를 진행하고 전도 감지 모델을 개발했습니다.'
+      description: 'CCTV 영상을 분석해 폭력, 침입, 방화, 흡연, 실신, 전도(쓰러짐) 등 이상행동을 자동 감지하는 웹 기반 모니터링 시스템입니다. 관리자 대시보드에서 카메라 등록·검색·관리, CCTV 화면, 감지 이미지 저장·조회 기능을 제공하며, React 기반 UI/UX로 PC·태블릿·모바일 환경에서 안정적으로 동작하도록 구현했습니다. 이 프로젝트에서 저는 프론트엔드 UI/UX 설계 및 개발, MediaPipe 기반 전도 감지 모델용 데이터 전처리, Feature Engineering, EDA, 전도 감지 모델 구조 설계 및 개선을 주도적으로 담당했습니다.'
     },
     
     challenge: {
       title: 'Challenge',
-      description: '실시간 CCTV 영상에서 다양한 이상행동을 정확하게 감지해야 하는 과제가 있었습니다. 특히 전도(쓰러짐) 감지의 경우, 카메라 구도(Front, Side, Top, Diagonal)에 따라 시각적 특징이 크게 달라지는 문제와 일상 행동(앉기, 눕기, 숙이기)과의 구분이 어려운 문제가 있었습니다. 또한 2,899개 영상 데이터에서 전도 데이터는 25%로 클래스 불균형이 존재했으며, 기존 클론 프로젝트의 UI/UX를 한국 사용자에 맞게 전면 개편해야 했습니다.'
+      description: '카메라 구도(Front, Side, Top, Diagonal)에 따라 전도 동작의 관절 패턴이 크게 달라져 초기 모델은 Front 구도만 높은 감지율을 보이고 다른 구도에서는 전도와 정상 행동(앉기·숙이기·눕기)이 혼동되는 문제가 있었습니다. 또한 전체 2,899개의 CCTV 영상 중 전도 비율이 약 25%에 불과해 클래스 불균형으로 전도 과소탐지가 발생했고, 폴더 기반 분할로 인해 영상 단위가 섞여 데이터 누수로 accuracy 1.0이 나오는 과적합 문제도 직접 확인했습니다. 프론트엔드 측면에서도 실시간 스트림, 감지 팝업, 이미지 저장 기능을 안정적으로 동작시키고, 다양한 화면 크기에서도 안정적인 UI와 매끄러운 모니터링 경험을 제공해야 하는 프론트엔드 기술적 요구사항도 존재했습니다.'
     },
     
     solution: {
       title: 'Solution',
-      description: 'MediaPipe Pose를 활용하여 33개 관절 좌표를 추출하고, Optical Flow로 움직임 벡터를 계산하여 198차원 Feature를 구성했습니다. Bi-LSTM 양방향 시계열 모델과 Attention Layer를 적용하여 전도 순간의 "하강 → 정지" 패턴을 학습시켰습니다. React 기반 직관적인 대시보드를 설계하여 실시간 CCTV 모니터링, 이상행동 통계, 이벤트 기록 관리 기능을 구현했으며, 모든 페이지에 반응형 디자인을 적용하여 모바일/태블릿 환경을 지원했습니다.'
+      description: 'MediaPipe Pose로 추출한 33개 관절 좌표를 중심점 기준으로 정규화하고, 관절 간 거리·속도·각도 특징을 결합한 Feature Fusion 시계열 입력을 구성했습니다. Bi-LSTM을 통해 “하강 → 바닥 접촉 → 정지”로 이어지는 전도 고유 패턴을 학습시키고, Attention을 적용해 핵심 프레임 가중치를 강화했습니다. 전도·정상 데이터 간 불균형은 class_weight로 보정하고, 데이터 누수 문제는 폴더 단위가 아닌 영상(video_id) 단위 GroupKFold 기준으로 재구성하여 해결했습니다. 프론트엔드에서는 React를 기반으로 대시보드, 카메라 관리, 실시간 감시 화면, 감지 이미지 저장·조회 UI를 설계하고, WebRTC 기반 스트림 성능 최적화 및 전 페이지 반응형 구조를 구축했습니다. 또한 전도 영상 약 800개와 추가 정상 행동 데이터를 기반으로 구도별 일반화 성능을 향상시키기 위한 모델 고도화를 지속적으로 진행 중입니다.'
     },
     
     techStack: {
@@ -76,17 +76,19 @@ export const projectsData = [
     results: {
       title: 'Results',
       achievements: [
-        'React 기반 실시간 CCTV 모니터링 UI/UX 개발 및 반응형 웹 구현',
-        'Bi-LSTM 전도 감지 모델 정확도 97.9%, Recall 88.4% 달성',
-        'MediaPipe Pose + Optical Flow 기반 Feature Engineering 파이프라인 구축',
-        '2,899개 영상 데이터 EDA 수행 및 클래스 불균형 문제 해결 방안 도출'
+        'React 기반 관리자 대시보드 · 카메라 등록 · 감지 이미지 저장/조회 UI/UX 개발',
+        'CCTV 모니터링 UI 안정화 및 감지 이벤트 팝업·저장 기능 설계',
+        'MediaPipe Pose 기반 전도 감지 Feature Engineering 파이프라인 구축',
+        '폴더 기반 데이터 분할로 발생하던 데이터 누수 문제를 영상 단위 GroupKFold 방식으로 재설계',
+        '전도·정상 데이터 비율 불균형 문제에 대해 class_weight 조정 및 정상 행동데이터 확장 전략을 수립',
+        'Feature Fusion + Bi-LSTM + Attention 기반 전도 감지 모델을 실시간 적용 가능한 형태로 구성'
       ]
     },
     
     links: {
       github: 'https://github.com/tangerineTaste/Anomaly-detection',
       youtube: 'https://www.youtube.com/@yshin_projects',
-      demo: '#'
+      demo: 'http://3.26.220.160:3000'
     },
     
     // CCTV 유튜브 영상
@@ -98,24 +100,24 @@ export const projectsData = [
     slug: 'ai-chatbot-assistant',
     title: '지능형 금융상담 챗봇 및 금융상품 추천 AI 시스템',
     subtitle: 'RAG-Based Personalized Financial Consulting Platform',
-    shortDescription: 'LightGBM 87.6% 정확도 달성, 22,975건 금융 데이터 처리',
+    shortDescription: '5개 금융상품 다중출력 모델 평균 Accuracy 87.6%',
     heroImage: mockupImage1,
     
     overview: {
       duration: '2024.07 - 2024.08 (5주)',
       role: '데이터 수집&정제, ML 모델링, Django 웹 구현 (40% 기여)',
       team: '4명',
-      description: '사용자 맞춤 금융 상담과 상품 추천을 제공하는 AI 기반 금융 플랫폼입니다. 챗봇을 통한 금융 상담, 회원 정보 기반 맞춤 상품 추천, 비회원도 이용 가능한 간편 추천 기능을 제공하며, 금융 뉴스, 공지사항, 서비스 가이드 등의 부가 기능을 포함합니다. 이 프로젝트에서 전체 UI/UX 설계 및 디자인, 대부분의 프론트엔드 페이지 개발, 팀원 페이지 통합 작업을 담당했으며, LightGBM과 XGBoost 기반 금융상품 추천 모델을 개발했습니다.'
+      description: '사용자의 금융 성향과 개인 정보를 기반으로 맞춤형 금융상품을 추천하고, RAG 기반 금융 상담 챗봇으로 다양한 금융·법률 정보를 제공하는 AI 금융 플랫폼입니다. 회원가입·상품 추천·뉴스 수집·공지사항·법률 문서 검색 기능을 통합한 웹 서비스로, Django 기반의 구조 설계와 프론트엔드 UI 개발을 담당했습니다. 또한 LightGBM·XGBoost 기반 금융상품 보유 여부 예측 모델을 개발하고, 데이터 전처리·EDA·모델링 전체 파이프라인을 주도했습니다.'
     },
     
     challenge: {
       title: 'Challenge',
-      description: '22,975건의 대용량 금융 데이터 처리 및 불균형 데이터 문제(클래스 비율: 4.2%~59.1% 분포)에 직면했습니다. 5개 금융상품(단기금융상품펀드, 양도성예금증서, 비머니마켓펀드, 주식보유, 퇴직준비금유동성)을 동시에 예측해야 했으며, 복잡한 비즈니스 로직과 사용자 인증을 다루는 Django 백엔드 개발이 필요했습니다.'
+      description: '22,975건의 금융 데이터는 각 금융상품의 보유 비율이 크게 달라 심한 클래스 불균형 문제가 존재했고, 5개의 금융상품을 동시에 예측해야 하는 다중출력 구조로 인해 각 타깃의 패턴을 안정적으로 학습시키기 어려웠습니다. 또한 Django에서 회원가입, 로그인, 추천 결과, 상품 상세 페이지 등 여러 기능을 자연스럽게 연결하는 UI 흐름을 구성해야 했으며, 다양한 사용자 입력을 기반으로 예측 결과를 안정적으로 전달하는 웹 구조 설계가 필요했습니다.'
     },
     
     solution: {
       title: 'Solution',
-      description: 'class_weight="balanced"를 적용하여 불균형 데이터 문제를 해결했습니다. MultiOutputClassifier를 통한 5개 금융상품 다중 출력 분류 구현 및 LightGBM과 XGBoost 모델 하이퍼파라미터 튜닝을 수행했습니다. 11개 핵심 특성 변수를 선별하고, Django 기반 5개 앱 구조(accounts, home, product_recommendation, customer_support 등)를 설계했습니다.'
+      description: '클래스 불균형 문제를 해결하기 위해 class_weight="balanced"를 적용하고, MultiOutputClassifier와 LightGBM·XGBoost 조합으로 5개 금융상품을 동시에 예측하는 모델을 설계했습니다. EDA를 통해 노이즈 변수를 정리하고 교육수준·연령대·위험성향 등 11개의 핵심 특성을 선별해 모델 효율성과 성능을 향상시켰습니다. Django 기반에서는 회원 인증, 추천 결과 페이지, 상품 상세 페이지, 공지사항 등 주요 기능을 개발하고 Bootstrap과 Chart.js를 활용해 사용자 친화적인 UI/UX를 구현했으며, 팀원들의 기능을 통합하여 전체 서비스 흐름을 안정적으로 구성했습니다.'
     },
     
     techStack: {
@@ -126,29 +128,30 @@ export const projectsData = [
     
     features: [
       {
+        title: 'Django 웹 애플리케이션 개발 및 배포',
+        description: 'Django 기반 웹 기획, 설계 및 UI/UX 디자인 담당. 5개 앱 구조 설계(accounts, home, product_recommendation, customer_support, chatbot). 사용자 인증 및 세션 관리 시스템 구현. AWS EC2 환경에서 웹 애플리케이션 배포 완료. 네이버 뉴스 API 연동 10개 카테고리 자동 분류 및 금융감독원 API 6개 카테고리 실시간 금융상품 데이터 수집 시스템 구축.',
+        image: keyfeatureImage3
+      },
+      {
         title: '금융상품 보유 예측',
         description: 'MultiOutputClassifier를 통한 5개 금융상품(MMMF, CDS, NMMF, STOCKS, RETQLIQ) 동시 예측 구현. 11개 특성 변수(교육수준분류, 연령대분류, 금융위험감수, 금융위험회피, 저축여부, 급여소득, 연령, 가구주성별, 결혼상태, 자녀수, 직업분류1)를 활용한 예측 시스템 구축.',
         image: keyfeatureImage1
       },
       {
-        title: 'RAG 시스템 기반 법률 문서 검색',
-        description: 'Pinecone 벡터 데이터베이스에 86,103개 텍스트 조각을 업로드하여 법률 문서 검색 시스템 구축. LangChain 프레임워크, Upstage Embeddings(solar-embedding-1-large), OpenAI(gpt-5-nano), Cohere 리랭킹 모델(rerank-multilingual-v3.0) 활용. 객관식 문제 80% 정확도(100문제 중 80개 정답), 주관식 문제 50% 정확도(50문제 중 25개 정답) 달성.',
+        title: '비회원 금융상품 간편 추천',
+        description: '비회원도 자연어로 자신의 상황을 입력하기만 하면 즉시 금융상품 추천을 받을 수 있는 간편 추천 페이지입니다. 제공된 예시를 클릭하면 자동으로 입력창이 채워져 누구나 쉽게 사용할 수 있으며, 로그인 없이도 AI 추천 결과를 시각화된 형태로 확인할 수 있어 서비스 접근성과 편의성을 크게 높였습니다.',
         image: keyfeatureImage2
       },
-      {
-        title: 'Django 웹 애플리케이션 개발 및 배포',
-        description: 'Django 기반 웹 기획, 설계 및 UI/UX 디자인 담당. 5개 앱 구조 설계(accounts, home, product_recommendation, customer_support, chatbot). 사용자 인증 및 세션 관리 시스템 구현. AWS EC2 환경에서 웹 애플리케이션 배포 완료. 네이버 뉴스 API 연동 10개 카테고리 자동 분류 및 금융감독원 API 6개 카테고리 실시간 금융상품 데이터 수집 시스템 구축.',
-        image: keyfeatureImage3
-      }
     ],
     
     results: {
       title: 'Results',
       achievements: [
-        'LightGBM 정확도 87.6% (F1-score 71.7%, Precision 67.1%, Recall 74.1%) 달성',
-        'RAG 시스템 객관식 80%, 주관식 50% 정확도로 86,103개 법률 문서 검색 구현',
-        '22,975건 대용량 금융 데이터 성공적 처리 및 5개 금융상품 다중 출력 분류 구현',
-        'Django 5개 앱 구조 웹 애플리케이션 개발 및 AWS EC2 클라우드 배포 성공'
+        '22,975건 금융 데이터 기반 5개 금융상품 다중출력 추천 모델 개발',
+        'LightGBM·XGBoost 기반 모델링 및 클래스 불균형 개선(class_weight 적용)',
+        'Django 기반 회원가입·로그인·추천결과·상품 상세·공지사항 UI 직접 구현',
+        '팀원 페이지와 백엔드 로직을 통합하여 웹 전체 서비스 흐름 안정화',
+        'AWS EC2 클라우드 배포 성공'
       ]
     },
     
@@ -174,17 +177,17 @@ export const projectsData = [
       duration: '2024.07 - 2024.07 (2주)',
       role: 'Flask 웹 개발, UI/UX 디자인 (30% 기여)',
       team: '4명',
-      description: '장마철 침수 위험을 예측하여 사전 대비를 돕는 AI 기반 웹 서비스입니다. 사용자는 날짜와 지역, AI 모델을 선택하여 침수 위험도를 예측하고, 그래프와 표로 시각화된 결과를 확인할 수 있습니다. 침수 관련 뉴스 조회, 회원 인증 기능도 제공합니다. 이 프로젝트에서 UI/UX 설계 및 디자인, Flask 기반 웹 개발 전반을 담당했습니다.'
+      description: '장마철 침수 위험을 예측하여 사용자에게 지역별 위험도를 시각적으로 제공하는 AI 기반 웹 서비스입니다. 랜덤포레스트·XGBoost·LightGBM·CatBoost 모델을 활용해 침수 위험을 계산하고, Flask 기반 웹 애플리케이션으로 예측 결과와 기상 데이터를 실시간으로 제공합니다. 이 프로젝트에서 저는 UI/UX 설계, Flask 기반 웹 서비스 개발, 예측 결과 시각화, 페이지 구조 설계를 중심으로 기여했습니다.'
     },
     
     challenge: {
       title: 'Challenge',
-      description: '약 227,000개의 대용량 기상 데이터를 효율적으로 처리하고 실시간으로 예측해야 하는 과제가 있었습니다. 다양한 기상 변수(강수량, 습도, 기온 등)를 고려한 정확한 침수 위험도 예측이 필요했으며, 사용자가 직관적으로 이해할 수 있는 시각화 인터페이스 구현이 요구되었습니다.'
+      description: '침수 위험 예측 결과를 사용자에게 직관적으로 전달하기 위해 대용량 기상 데이터를 기반으로 생성된 예측 값을 빠르게 받아와 표시해야 했습니다. Flask 환경에서 여러 페이지와 API를 연결하여 날짜·지역 선택 → 모델 선택 → 예측 요청 → 시각화 결과 표시까지의 흐름을 안정적으로 구성하는 것이 필요했습니다. 또한 지역별 위험 수준을 한눈에 파악할 수 있도록 그래프, 표, 색상 등을 활용한 시각적 UI 설계가 중요한 과제였습니다.'
     },
     
     solution: {
       title: 'Solution',
-      description: '4가지 머신러닝 모델을 앙상블하여 예측 정확도를 향상시켰습니다. Flask 프레임워크를 활용한 경량화된 웹 애플리케이션 구조 설계로 1초 이내 실시간 예측 처리를 구현했습니다. Chart.js를 활용한 데이터 시각화로 지역별 침수 위험도를 직관적으로 표현했으며, 12개의 RESTful API를 통해 효율적인 데이터 통신 구조를 구축했습니다.'
+      description: 'Flask 기반으로 입력값을 전달받아 예측 결과를 반환하는 REST API를 설계하고, 선택된 지역·날짜·모델에 따라 즉시 응답하도록 웹 구조를 최적화했습니다. Chart.js를 활용해 지역별 침수 위험도를 그래프와 표로 시각화하여 사용자가 데이터를 직관적으로 확인할 수 있도록 구현했습니다. 또한 전체 UI/UX 흐름을 재구성하여 예측 페이지, 뉴스 페이지, 회원 기능, 모델 선택 UI 등 다양한 화면을 사용자 친화적으로 설계하고, 서비스 전체를 안정적으로 동작하도록 페이지를 통합했습니다.'
     },
     
     techStack: {
@@ -214,17 +217,18 @@ export const projectsData = [
     results: {
       title: 'Results',
       achievements: [
-        'Flask 기반 완성된 웹 사이트 구축 (6개 페이지, 12개 API)',
-        '약 227,000개 대용량 기상 데이터 성공적 처리',
-        '실시간 예측 1초 이내 처리 시스템 완성',
-        '4가지 머신러닝 모델 앙상블을 통한 높은 예측 정확도 달성'
+        'Flask 기반 실시간 침수 위험 예측 웹 인터페이스 구축',
+        'Chart.js 기반 시각화로 지역별 위험도 그래프·표 UI 개발',
+        '날짜·지역·모델 선택 기능을 포함한 사용자 중심 인터페이스 설계',
+        '12개 Flask API를 연동해 데이터 호출·전달 구조 안정화',
+        '예측 페이지·뉴스 페이지·회원 기능 등 전체 페이지 UI/UX 개발 및 통합'
       ]
     },
     
     links: {
       github: 'https://github.com/SeohuiJeong0420/crew_soom',
       youtube: 'https://www.youtube.com/@yshin_projects',
-      demo: '#'
+      // demo: '#'
     },
     
     // 침수 예측 유튜브 영상
