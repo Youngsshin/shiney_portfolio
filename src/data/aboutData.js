@@ -61,17 +61,16 @@ export const aboutData = {
     title: "CAREER",
     items: [
       {
-        company: "㈜에이와이엠",
-        role: "홈페이지 제작 및 디자인",
-        period: "2022.01 — 2024.11"
+        name: "㈜에이와이엠 / 홈페이지 제작 및 디자인",
+        source: "2022.01 — 2024.11"
       },
       {
-        company: "제주퍼시픽호텔",
-        role: "웨딩홀 & 프론트 데스크",
-        period: "2019.02 — 2021.02"
+        name: "제주퍼시픽호텔 / 웨딩홀 & 프론트 데스크",
+        source: "2019.02 — 2021.02"
       }
     ]
   },
+
 
   // Timeline Section
   // timeline: {

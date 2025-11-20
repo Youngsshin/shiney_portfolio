@@ -117,16 +117,12 @@ function About() {
             <section className="about-career-section animate-on-scroll">
               <h4 className="about-section-title">{aboutData.career.title}</h4>
 
-              <div className="about-career-grid">
+              <div className="about-cert-grid">
                 {aboutData.career.items.map((item, index) => (
-                  <div key={index} className="career-item">
-
-                    <div className="career-info">
-                      <span className="career-company">{item.company}</span>
-                      <span className="career-role">{item.role}</span>
-                      <span className="career-period">{item.period}</span>
-                    </div>
-
+                  <div key={index} className="about-cert-item">
+                    <span className="about-cert-dot">●</span>
+                    <span>{item.name}</span>
+                    <span className="about-cert-source">{item.source}</span>
                   </div>
                 ))}
               </div>

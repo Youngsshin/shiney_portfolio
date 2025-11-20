@@ -407,7 +407,8 @@
    CAREER SECTION
 -------------------------- */
 .about-career-section {
-  padding: 0px 50px;
+  padding: 0px 0px 60px;
+  margin-bottom: 60px;
   border-bottom: 1px solid #000; 
 }
 
