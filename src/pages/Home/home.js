@@ -449,7 +449,7 @@ function Home() {
               <div className="box-content">
                 <h2 className="box-title">이상행동 감지 시스템</h2>
                 <p className="box-description">
-                  CCTV 영상을 실시간 분석하여 매장 내 이상행동을 감지하고 관리자에게 알림을 제공하는 감지 시스템을 개발했습니다.
+                  CCTV 영상을 분석하여 매장 내 이상행동을 감지하고 관리자 대시보드에서 카메라 등록, CCTV 화면, 이미지 저장 기능을 제공하는 시스템을 개발했습니다.
                 </p>
               </div>
             </div>
