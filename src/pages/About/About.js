@@ -100,6 +100,59 @@ function About() {
               <img src={aboutData.profile.profileImage} alt={aboutData.profile.name} />
             </div>
 
+            {/* Career Section */}
+            <section className="about-career-section animate-on-scroll">
+              <h4 className="about-section-title">{aboutData.career.title}</h4>
+
+              <div className="about-career-grid">
+                {aboutData.career.items.map((item, index) => (
+                  <div key={index} className="career-item">
+                    <span className="career-period">{item.period}</span>
+                    <div className="career-info">
+                      <span className="career-role">{item.role}</span>
+                      <span className="career-company">{item.company}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </section>
+
+            {/* Timeline Section */}
+            <section className="about-timeline-section animate-on-scroll">
+              <h4 className="about-section-title">{aboutData.timeline.title}</h4>
+
+              <div className="timeline">
+                {aboutData.timeline.items.map((item, index) => (
+                  <div key={index} className="timeline-row">
+                    <span className="timeline-year">{item.year}</span>
+                    <span className="timeline-text">{item.text}</span>
+                  </div>
+                ))}
+              </div>
+            </section>
+
+            {/* Featured Projects Section */}
+            <section className="about-projects-section animate-on-scroll">
+              <h4 className="about-section-title">{aboutData.projects.title}</h4>
+
+              <div className="about-projects-grid">
+                {aboutData.projects.items.map((project, index) => (
+                  <div key={index} className="project-card">
+                    <h5 className="project-name">{project.name}</h5>
+                    <p className="project-description">{project.description}</p>
+                    <p className="project-tech">
+                      {project.tech.join(" • ")}
+                    </p>
+                    {project.link && (
+                      <a href={project.link} className="project-link">
+                        VIEW PROJECT →
+                      </a>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </section>
+
             {/* Skills Section */}
             <div className="about-skills animate-on-scroll">
               <h4>{aboutData.skills.title}</h4>

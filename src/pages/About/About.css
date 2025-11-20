@@ -403,6 +403,144 @@
   opacity: 0.6;
 }
 
+/* -------------------------
+   CAREER SECTION
+-------------------------- */
+.about-career-section {
+  padding: 80px 50px;
+  border-top: 1px solid #000;
+}
+
+.about-section-title {
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  margin-bottom: 40px;
+  text-transform: uppercase;
+}
+
+.about-career-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.career-item {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  gap: 20px;
+}
+
+.career-period {
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+}
+
+.career-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.career-role {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.career-company {
+  font-size: 15px;
+  color: #666;
+}
+
+/* -------------------------
+   TIMELINE SECTION
+-------------------------- */
+.about-timeline-section {
+  padding: 80px 50px;
+  border-top: 1px solid #000;
+}
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.timeline-row {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 20px;
+}
+
+.timeline-year {
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.timeline-text {
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* -------------------------
+   FEATURED PROJECTS SECTION
+-------------------------- */
+.about-projects-section {
+  padding: 80px 50px;
+  border-top: 1px solid #000;
+}
+
+.about-projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+}
+
+.project-card {
+  border: 1px solid #ddd;
+  padding: 25px;
+  border-radius: 14px;
+  background: #fff;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 8px 20px rgba(0,0,0,0.08);
+}
+
+.project-name {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.project-description {
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+.project-tech {
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 18px;
+}
+
+.project-link {
+  font-size: 14px;
+  font-weight: 700;
+  color: #000;
+  text-decoration: none;
+  padding-bottom: 2px;
+  border-bottom: 1px solid #000;
+}
+
+.project-link:hover {
+  opacity: 0.6;
+}
+
+
 /* 🔥 반응형 - 모바일 (768px 이하) */
 @media (max-width: 768px) {
   /* Hero Section */
@@ -606,6 +744,74 @@
   .about-links-right {
     font-size: 14px;
   }
+
+  .about-career-section {
+    padding: 50px 20px;
+  }
+
+  .career-item {
+    grid-template-columns: 1fr; /* 2열 → 1열 */
+    gap: 5px;
+  }
+
+  .career-period {
+    font-size: 13px;
+  }
+
+  .career-role {
+    font-size: 16px;
+  }
+
+  .career-company {
+    font-size: 14px;
+  }
+
+    .about-timeline-section {
+    padding: 50px 20px;
+  }
+
+  .timeline-row {
+    grid-template-columns: 1fr; /* 연도/설명 1열 */
+    gap: 5px;
+  }
+
+  .timeline-year {
+    font-size: 14px;
+    font-weight: 700;
+  }
+
+  .timeline-text {
+    font-size: 14px;
+  }
+
+  .about-projects-section {
+    padding: 50px 20px;
+  }
+
+  .about-projects-grid {
+    grid-template-columns: 1fr; /* 1열 */
+    gap: 20px;
+  }
+
+  .project-card {
+    padding: 20px;
+  }
+
+  .project-name {
+    font-size: 16px;
+  }
+
+  .project-description {
+    font-size: 13px;
+  }
+
+  .project-tech {
+    font-size: 12px;
+  }
+
+  .project-link {
+    font-size: 13px;
+  }
 }
 
 /* 🔥 반응형 - 태블릿 (769px ~ 1024px) */
@@ -740,5 +946,72 @@
   .about-bottom-links {
     padding: 30px 40px 50px;
     font-size: 15px;
+  }
+
+  .about-career-section {
+    padding: 60px 40px;
+  }
+
+  .career-item {
+    grid-template-columns: 120px 1fr;
+    gap: 15px;
+  }
+
+  .career-period {
+    font-size: 14px;
+  }
+
+  .career-role {
+    font-size: 17px;
+  }
+
+  .career-company {
+    font-size: 14px;
+  }
+
+  .about-timeline-section {
+    padding: 60px 40px;
+  }
+
+  .timeline-row {
+    grid-template-columns: 120px 1fr;
+    gap: 15px;
+  }
+
+  .timeline-year {
+    font-size: 15px;
+  }
+
+  .timeline-text {
+    font-size: 14px;
+  }
+
+  .about-projects-section {
+    padding: 60px 40px;
+  }
+
+  .about-projects-grid {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+  }
+
+  .project-card {
+    padding: 22px;
+  }
+
+  .project-name {
+    font-size: 17px;
+  }
+
+  .project-description {
+    font-size: 13.5px;
+  }
+
+  .project-tech {
+    font-size: 12.5px;
+  }
+
+  .project-link {
+    font-size: 13.5px;
   }
 }

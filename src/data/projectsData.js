@@ -45,12 +45,12 @@ export const projectsData = [
     
     solution: {
       title: 'Solution',
-      description: 'MediaPipe Pose로 추출한 33개 관절 좌표를 중심점 기준으로 정규화하고, 관절 간 거리·속도·각도 특징을 결합한 Feature Fusion 시계열 입력을 구성했습니다. Bi-LSTM을 통해 “하강 → 바닥 접촉 → 정지”로 이어지는 전도 고유 패턴을 학습시키고, Attention을 적용해 핵심 프레임 가중치를 강화했습니다. 전도·정상 데이터 간 불균형은 class_weight로 보정하고, 데이터 누수 문제는 폴더 단위가 아닌 영상(video_id) 단위 GroupKFold 기준으로 재구성하여 해결했습니다. 프론트엔드에서는 React를 기반으로 대시보드, 카메라 관리, 실시간 감시 화면, 감지 이미지 저장·조회 UI를 설계하고, WebRTC 기반 스트림 성능 최적화 및 전 페이지 반응형 구조를 구축했습니다. 또한 전도 영상 약 800개와 추가 정상 행동 데이터를 기반으로 구도별 일반화 성능을 향상시키기 위한 모델 고도화를 지속적으로 진행 중입니다.'
+      description: 'MediaPipe Pose로 추출한 33개 관절(x, y, z, visibility)을 정규화하고, 현재 프레임과 이전 프레임의 차이(velocity)를 결합해 264차원 Feature를 생성했습니다. 전도 Pose 파일과 정상 Pose 파일이 동일 폴더에 섞여 라벨링이 정상적으로 적용되지 않는 문제를 해결하기 위해 fall/normal 데이터 구조를 재정리했으며, 사건 단위(video_id) GroupKFold를 적용해 데이터 누수를 완전히 차단했습니다. 학습과 실시간 추론 모두 동일한 Feature 파이프라인을 적용해 입력 분포를 통일했고, MLP 기반 모델을 재학습해 실시간 전도 감지 성능을 안정화했습니다.'
     },
     
     techStack: {
       frontend: ['React', 'HTML5', 'CSS3', 'JavaScript', 'React Router'],
-      backend: ['Python 3.11', 'Flask', 'YOLOv8', 'Bi-LSTM', 'MediaPipe Pose', 'Pandas', 'NumPy', 'scikit-learn'],
+      backend: ['Python 3.11', 'Flask', 'YOLOv8', 'MediaPipe Pose', 'Pandas', 'NumPy', 'scikit-learn'],
       database: ['MongoDB'],
       deployment: ['WebRTC', 'OpenAI API', 'Git']
     },
@@ -81,7 +81,8 @@ export const projectsData = [
         'MediaPipe Pose 기반 전도 감지 Feature Engineering 파이프라인 구축',
         '폴더 기반 데이터 분할로 발생하던 데이터 누수 문제를 영상 단위 GroupKFold 방식으로 재설계',
         '전도·정상 데이터 비율 불균형 문제에 대해 class_weight 조정 및 정상 행동데이터 확장 전략을 수립',
-        'Feature Fusion + Bi-LSTM + Attention 기반 전도 감지 모델을 실시간 적용 가능한 형태로 구성'
+        'Feature Fusion 기반 264차원 입력 + MLP 모델을 실시간 적용 가능한 형태로 구성',
+        '테스트에서 ‘전도 감지됨!’ 로그 확인으로 전도 감지 성공'
       ]
     },
     
@@ -129,12 +130,12 @@ export const projectsData = [
     features: [
       {
         title: 'Django 웹 애플리케이션 개발 및 배포',
-        description: 'Django 기반 웹 기획, 설계 및 UI/UX 디자인 담당. 5개 앱 구조 설계(accounts, home, product_recommendation, customer_support, chatbot). 사용자 인증 및 세션 관리 시스템 구현. AWS EC2 환경에서 웹 애플리케이션 배포 완료. 네이버 뉴스 API 연동 10개 카테고리 자동 분류 및 금융감독원 API 6개 카테고리 실시간 금융상품 데이터 수집 시스템 구축.',
+        description: 'Django 기반 웹 기획과 설계, UI/UX 디자인을 담당하며 accounts, home, product_recommendation, customer_support, chatbot 총 5개의 앱 구조를 설계했습니다. 사용자 인증 및 세션 관리 시스템을 직접 구현해 서비스 흐름을 안정화했고, AWS EC2 환경에서 웹 애플리케이션을 배포해 실제 운영 가능한 형태로 구성했습니다. 또한 네이버 뉴스 API를 활용해 10개 카테고리의 뉴스를 자동으로 분류하는 기능을 개발하고, 금융감독원 API 연동을 통해 6개 카테고리의 금융상품 정보를 실시간으로 수집하는 시스템을 구축했습니다.',
         image: keyfeatureImage3
       },
       {
         title: '금융상품 보유 예측',
-        description: 'MultiOutputClassifier를 통한 5개 금융상품(MMMF, CDS, NMMF, STOCKS, RETQLIQ) 동시 예측 구현. 11개 특성 변수(교육수준분류, 연령대분류, 금융위험감수, 금융위험회피, 저축여부, 급여소득, 연령, 가구주성별, 결혼상태, 자녀수, 직업분류1)를 활용한 예측 시스템 구축.',
+        description: 'MultiOutputClassifier를 활용해 MMMF, CDS, NMMF, STOCKS, RETQLIQ 5개 금융상품을 동시에 예측하는 모델을 구현했으며, 교육수준분류, 연령대분류, 금융위험감수·위험회피 성향, 저축 여부, 급여소득, 연령, 가구주 성별, 결혼 상태, 자녀 수, 직업분류1 등 총 11개의 핵심 특성 변수를 기반으로 예측 시스템을 구축했습니다.',
         image: keyfeatureImage1
       },
       {

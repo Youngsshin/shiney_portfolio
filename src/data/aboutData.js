@@ -29,6 +29,60 @@ export const aboutData = {
     ]
   },
 
+    // Career Section (비IT 경력)
+  career: {
+    title: "CAREER",
+    items: [
+      {
+        period: "2022.01 — 2024.11",
+        role: "홈페이지 제작 및 디자인",
+        company: "㈜에이와이엠",
+      },
+      {
+        period: "2019.02 — 2021.02",
+        role: "웨딩홀 & 프론트 데스크",
+        company: "제주퍼시픽호텔",
+      }
+    ]
+  },
+
+  // Timeline Section
+  timeline: {
+    title: "TIMELINE",
+    items: [
+      { year: "2020", text: "웹 퍼블리셔로 커리어 시작" },
+      { year: "2021", text: "웹 디자인 & 영상편집 과정 수료" },
+      { year: "2024", text: "AI/ML 학습 시작 (Python·데이터분석·DL)" },
+      { year: "2025", text: "CV, NLP, RAG 기반 AI 프로젝트 수행" },
+      { year: "2025", text: "AI 포트폴리오 웹사이트 & RAG 챗봇 구축" }
+    ]
+  },
+
+  // Featured Projects
+  projects: {
+    title: "FEATURED PROJECTS",
+    items: [
+      {
+        name: "CCTV 이상행동 감지 AI",
+        description: "Bi-LSTM + Pose 기반 실시간 전도 감지 시스템",
+        tech: ["TensorFlow", "OpenCV", "MediaPipe", "FastAPI", "React"],
+        link: "/project/cctv"
+      },
+      {
+        name: "금융상품 추천 AI",
+        description: "LightGBM/XGBoost 기반 다중 금융상품 보유 예측 모델",
+        tech: ["scikit-learn", "EDA", "XGBoost", "Django"],
+        link: "/project/finance"
+      },
+      {
+        name: "포트폴리오 RAG 챗봇",
+        description: "내 포트폴리오 정보를 기반으로 응답하는 AI 챗봇",
+        tech: ["OpenAI API", "Vector DB", "React", "FastAPI"],
+        link: "/project/chatbot"
+      }
+    ]
+  },
+
   // Skills Section
   skills: {
     title: "SKILLS",
