@@ -29,7 +29,34 @@ export const aboutData = {
     ]
   },
 
-    // Career Section (비IT 경력)
+  // Skills Section
+  skills: {
+    title: "SKILLS",
+    categories: [
+      {
+        name: "Languages",
+        items: ["Python", "JavaScript", "HTML5", "CSS3"]
+      },
+      {
+        name: "Frameworks",
+        items: ["Django", "Flask", "React", "Bootstrap", "Jinja2", "jQuery"]
+      },
+      {
+        name: "AI/ML",
+        items: ["TensorFlow", "PyTorch", "scikit-learn", "LLM (RAG)", "Transformer", "NLP", "CNN", "RNN", "DNN", "Computer Vision", "YOLO"]
+      },
+      {
+        name: "Database",
+        items: ["MySQL", "SQLite", "Oracle", "Pandas", "NumPy"]
+      },
+      {
+        name: "Tools & Platform",
+        items: ["Git", "AWS EC2", "VS Code", "Hugging Face", "Ollama", "OpenAI API", "Jupyter Notebook", "PyCharm"]
+      }
+    ]
+  },
+
+  // Career Section (비IT 경력)
   career: {
     title: "CAREER",
     items: [
@@ -79,33 +106,6 @@ export const aboutData = {
         description: "내 포트폴리오 정보를 기반으로 응답하는 AI 챗봇",
         tech: ["OpenAI API", "Vector DB", "React", "FastAPI"],
         link: "/project/chatbot"
-      }
-    ]
-  },
-
-  // Skills Section
-  skills: {
-    title: "SKILLS",
-    categories: [
-      {
-        name: "Languages",
-        items: ["Python", "JavaScript", "HTML5", "CSS3"]
-      },
-      {
-        name: "Frameworks",
-        items: ["Django", "Flask", "React", "Bootstrap", "Jinja2", "jQuery"]
-      },
-      {
-        name: "AI/ML",
-        items: ["TensorFlow", "PyTorch", "scikit-learn", "LLM (RAG)", "Transformer", "NLP", "CNN", "RNN", "DNN", "Computer Vision", "YOLO"]
-      },
-      {
-        name: "Database",
-        items: ["MySQL", "SQLite", "Oracle", "Pandas", "NumPy"]
-      },
-      {
-        name: "Tools & Platform",
-        items: ["Git", "AWS EC2", "VS Code", "Hugging Face", "Ollama", "OpenAI API", "Jupyter Notebook", "PyCharm"]
       }
     ]
   },

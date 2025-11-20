@@ -100,6 +100,19 @@ function About() {
               <img src={aboutData.profile.profileImage} alt={aboutData.profile.name} />
             </div>
 
+            {/* Skills Section */}
+            <div className="about-skills animate-on-scroll">
+              <h4>{aboutData.skills.title}</h4>
+              <div className="about-skills-grid">
+                {aboutData.skills.categories.map((category, index) => (
+                  <div key={index} className="about-skill-category">
+                    <span className="about-skill-category-name">{category.name}</span>
+                    <span className="about-skill-items">{category.items.join(', ')}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
             {/* Career Section */}
             <section className="about-career-section animate-on-scroll">
               <h4 className="about-section-title">{aboutData.career.title}</h4>
@@ -152,19 +165,6 @@ function About() {
                 ))}
               </div>
             </section>
-
-            {/* Skills Section */}
-            <div className="about-skills animate-on-scroll">
-              <h4>{aboutData.skills.title}</h4>
-              <div className="about-skills-grid">
-                {aboutData.skills.categories.map((category, index) => (
-                  <div key={index} className="about-skill-category">
-                    <span className="about-skill-category-name">{category.name}</span>
-                    <span className="about-skill-items">{category.items.join(', ')}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
 
             <div className="about-certifications animate-on-scroll">
               <h4>{aboutData.certifications.title}</h4>
