@@ -274,7 +274,6 @@
 
 .about-cert-source {
   text-align: right;
-  font-style: italic;
   color: #666;
 }
 
@@ -292,6 +291,7 @@
 }
 
 .about-award-date {
+  color: #666;
   text-align: right;
 }
 
