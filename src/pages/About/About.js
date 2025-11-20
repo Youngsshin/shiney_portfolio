@@ -120,17 +120,19 @@ function About() {
               <div className="about-career-grid">
                 {aboutData.career.items.map((item, index) => (
                   <div key={index} className="career-item">
-                    <span className="career-period">{item.period}</span>
+
                     <div className="career-info">
-                      <span className="career-role">{item.role}</span>
                       <span className="career-company">{item.company}</span>
+                      <span className="career-role">{item.role}</span>
+                      <span className="career-period">{item.period}</span>
                     </div>
+
                   </div>
                 ))}
               </div>
             </section>
 
-            {/* Timeline Section */}
+            {/* Timeline Section
             <section className="about-timeline-section animate-on-scroll">
               <h4 className="about-section-title">{aboutData.timeline.title}</h4>
 
@@ -142,9 +144,9 @@ function About() {
                   </div>
                 ))}
               </div>
-            </section>
+            </section> */}
 
-            {/* Featured Projects Section */}
+            {/* Featured Projects Section
             <section className="about-projects-section animate-on-scroll">
               <h4 className="about-section-title">{aboutData.projects.title}</h4>
 
@@ -164,7 +166,7 @@ function About() {
                   </div>
                 ))}
               </div>
-            </section>
+            </section> */}
 
             <div className="about-certifications animate-on-scroll">
               <h4>{aboutData.certifications.title}</h4>

@@ -407,50 +407,37 @@
    CAREER SECTION
 -------------------------- */
 .about-career-section {
-  padding: 80px 50px;
-  border-top: 1px solid #000;
-}
-
-.about-section-title {
-  font-size: 16px;
-  font-weight: 700;
-  letter-spacing: 0.5px;
-  margin-bottom: 40px;
-  text-transform: uppercase;
+  padding: 0px 50px;
+  /* border-top: 1px solid #000; */
 }
 
 .about-career-grid {
   display: flex;
   flex-direction: column;
-  gap: 25px;
+  gap: 28px;
 }
 
 .career-item {
-  display: grid;
-  grid-template-columns: 150px 1fr;
-  gap: 20px;
-}
-
-.career-period {
-  font-weight: 600;
-  font-size: 14px;
-  letter-spacing: 0.5px;
-}
-
-.career-info {
   display: flex;
   flex-direction: column;
+  gap: 4px;
 }
 
-.career-role {
+.career-company {
   font-size: 18px;
   font-weight: 700;
 }
 
-.career-company {
+.career-role {
   font-size: 15px;
+  color: #333;
+}
+
+.career-period {
+  font-size: 14px;
   color: #666;
 }
+
 
 /* -------------------------
    TIMELINE SECTION
